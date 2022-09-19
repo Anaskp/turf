@@ -6,44 +6,41 @@ var profile = {
 
 List categories = [
   {"name": "All", "icon": "assets/icons/home.svg"},
-  {"name": "Single Room", "icon": "assets/icons/home.svg"},
-  {"name": "Double Room", "icon": "assets/icons/home.svg"},
-  {"name": "Family Room", "icon": "assets/icons/home.svg"},
-  {"name": "Queen Room", "icon": "assets/icons/home.svg"},
-  {"name": "King Room", "icon": "assets/icons/home.svg"},
-  {"name": "Bungalow", "icon": "assets/icons/home.svg"},
-  {"name": "Single Villa", "icon": "assets/icons/home.svg"},
-  {"name": "Apartment", "icon": "assets/icons/home.svg"},
+  {"name": "7's", "icon": "assets/icons/home.svg"},
+  {"name": "5's", "icon": "assets/icons/home.svg"},
+  {"name": "11's", "icon": "assets/icons/home.svg"},
+  {"name": "5's", "icon": "assets/icons/home.svg"},
+  {"name": "7's", "icon": "assets/icons/home.svg"},
+  {"name": "11's", "icon": "assets/icons/home.svg"},
+  {"name": "7's", "icon": "assets/icons/home.svg"},
+  {"name": "5's", "icon": "assets/icons/home.svg"},
 ];
 
 List cities = [
-  {"name": "Phnom Penh", "icon": "assets/icons/home.svg"},
-  {"name": "Siem Reap", "icon": "assets/icons/home.svg"},
-  {"name": "Sihanoukville", "icon": "assets/icons/home.svg"},
-  {"name": "Battambang", "icon": "assets/icons/home.svg"},
-  {"name": "Mondulkiri", "icon": "assets/icons/home.svg"},
-  {"name": "Kampot", "icon": "assets/icons/home.svg"},
-  {"name": "Pursat", "icon": "assets/icons/home.svg"},
-  {"name": "Steung Treng", "icon": "assets/icons/home.svg"},
+  {"name": "Thalassery", "icon": "assets/icons/home.svg"},
+  {"name": "3 mile", "icon": "assets/icons/home.svg"},
+  {"name": "Kadiroor", "icon": "assets/icons/home.svg"},
+  {"name": "Koothuparamba", "icon": "assets/icons/home.svg"},
+  {"name": "Chungam", "icon": "assets/icons/home.svg"},
 ];
 
 List<String> albumImages = [
-  "https://images.unsplash.com/photo-1598928636135-d146006ff4be?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-  "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+  "https://images.unsplash.com/photo-1509077613385-f89402467146?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+  "https://images.unsplash.com/photo-1509077613385-f89402467146?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+  "https://images.unsplash.com/photo-1509077613385-f89402467146?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+  "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
 ];
 
 List features = [
   {
     "id": 100,
-    "name": "Superior Room",
+    "name": "King Arena",
     "image":
-        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$210",
+        "https://images.unsplash.com/photo-1509077613385-f89402467146?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+    "price": "₹800",
     "type": categories[1]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "Chungam",
     "is_favorited": false,
     "album_images": albumImages,
     "description":
@@ -51,13 +48,13 @@ List features = [
   },
   {
     "id": 101,
-    "name": "Junior Suite",
+    "name": "Emirates Turf",
     "image":
-        "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$150",
+        "https://images.unsplash.com/photo-1550881111-7cfde14b8073?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "price": "₹850",
     "type": categories[3]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "Thalassery",
     "is_favorited": true,
     "album_images": albumImages,
     "description":
@@ -65,13 +62,13 @@ List features = [
   },
   {
     "id": 102,
-    "name": "Classic Queen Room",
+    "name": "Elite Turf",
     "image":
-        "https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$320",
+        "https://images.unsplash.com/photo-1621929209157-b69c5183d01e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+    "price": "₹950",
     "type": categories[2]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "3 mile",
     "is_favorited": false,
     "album_images": albumImages,
     "description":
@@ -79,13 +76,13 @@ List features = [
   },
   {
     "id": 103,
-    "name": "Luxury King",
+    "name": "Kingdom",
     "image":
-        "https://images.unsplash.com/photo-1571508601891-ca5e7a713859?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$350",
+        "https://images.unsplash.com/photo-1495143881214-47a7d7f2e7fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "price": "₹1000",
     "type": categories[2]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "Kadiroor",
     "is_favorited": false,
     "album_images": albumImages,
     "description":
@@ -93,13 +90,13 @@ List features = [
   },
   {
     "id": 104,
-    "name": "Classic Room",
+    "name": "Classic Turf",
     "image":
-        "https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$180",
+        "https://images.unsplash.com/photo-1448683583252-f787c5c96f4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80",
+    "price": "₹600",
     "type": categories[4]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "Koothuparamba",
     "is_favorited": false,
     "album_images": albumImages,
     "description":
@@ -107,13 +104,13 @@ List features = [
   },
   {
     "id": 105,
-    "name": "Twin Room",
+    "name": "Play time",
     "image":
-        "https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$250",
+        "https://images.unsplash.com/photo-1528552904359-07bab3b488ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "price": "₹1050",
     "type": categories[1]["name"],
     "rate": "4.5",
-    "location": "Phnom Penh",
+    "location": "Kadiroor",
     "is_favorited": false,
     "album_images": albumImages,
     "description":
@@ -124,10 +121,10 @@ List features = [
 List recommends = [
   {
     "id": 110,
-    "name": "Luxury King",
+    "name": "Luxury Turf",
     "image":
-        "https://images.unsplash.com/photo-1541123356219-284ebe98ae3b?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$310",
+        "https://images.unsplash.com/photo-1610729866389-fbf90649c302?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+    "price": "₹800",
     "type": categories[1]["name"],
     "rate": "4.5",
     "location": "Phnom Penh",
@@ -138,10 +135,10 @@ List recommends = [
   },
   {
     "id": 111,
-    "name": "Classic Room",
+    "name": "Emirates kingdom",
     "image":
-        "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$250",
+        "https://images.unsplash.com/photo-1522947961977-67fe74257c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+    "price": "₹1300",
     "type": categories[2]["name"],
     "rate": "4.5",
     "location": "Phnom Penh",
@@ -152,10 +149,10 @@ List recommends = [
   },
   {
     "id": 112,
-    "name": "Twin Room",
+    "name": "Arena play",
     "image":
-        "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "price": "\$190",
+        "https://images.unsplash.com/photo-1509077613385-f89402467146?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80",
+    "price": "₹1500",
     "type": categories[1]["name"],
     "rate": "4.5",
     "location": "Phnom Penh",

@@ -1,11 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:hotel_booking/screens/info_screen.dart';
 import 'package:hotel_booking/theme/color.dart';
 import 'package:hotel_booking/utils/data.dart';
 import 'package:hotel_booking/widgets/city_item.dart';
 import 'package:hotel_booking/widgets/feature_item.dart';
 import 'package:hotel_booking/widgets/notification_box.dart';
 import 'package:hotel_booking/widgets/recommend_item.dart';
+import 'package:geocoding/geocoding.dart' as geocode;
+import 'package:location/location.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,6 +18,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    _getCurrentPosition();
+    super.initState();
+  }
+
+  LocationData? _locationData;
+
+  String? _currentAddress;
+  LocationData? currentLocation;
+  Location location = Location();
+  double? lat;
+  double? long;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,24 +60,27 @@ class _HomePageState extends State<HomePage> {
         children: [
           Column(
             children: [
-              Row(
-                children: [
-                  Icon(
-                    Icons.place_outlined,
-                    color: labelColor,
-                    size: 20,
-                  ),
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text(
-                    "Phnom Penh",
-                    style: TextStyle(
-                      color: darker,
-                      fontSize: 13,
+              InkWell(
+                onTap: _getCurrentPosition,
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.place_outlined,
+                      color: labelColor,
+                      size: 20,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: 3,
+                    ),
+                    Text(
+                      _currentAddress ?? 'Get location',
+                      style: TextStyle(
+                        color: darker,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
               )
             ],
           ),
@@ -94,7 +114,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 10),
               child: Text(
-                "The Best Hotel Rooms",
+                "The Best Turf Around You",
                 style: TextStyle(
                   color: textColor,
                   fontWeight: FontWeight.w600,
@@ -165,7 +185,12 @@ class _HomePageState extends State<HomePage> {
                   !features[index]["is_favorited"];
             });
           },
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => InfoScreen(
+                      data: features[index],
+                    )));
+          },
         ),
       ),
     );
@@ -182,7 +207,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(right: 10),
             child: RecommendItem(
               data: recommends[index],
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => InfoScreen(
+                          data: recommends[index],
+                        )));
+              },
             ),
           ),
         ),
@@ -207,5 +237,62 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> _getCurrentPosition() async {
+    final hasPermission = await _handleLocationPermission();
+
+    if (!hasPermission) return;
+
+    _locationData = await location.getLocation();
+    lat = _locationData!.latitude;
+    long = _locationData!.longitude;
+
+    _getAddressFromLatLng(_locationData!.latitude, _locationData!.longitude);
+  }
+
+  Future<void> _getAddressFromLatLng(double? lat, double? lon) async {
+    List<geocode.Placemark> placemark =
+        await geocode.placemarkFromCoordinates(lat!, lon!);
+
+    setState(() {
+      _currentAddress =
+          '${placemark[0].street} ${placemark[0].subLocality} ${placemark[0].locality}';
+    });
+  }
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    PermissionStatus permission;
+
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+        return false;
+      }
+    }
+
+    permission = await location.hasPermission();
+    if (permission == PermissionStatus.denied) {
+      permission = await location.requestPermission();
+      if (permission == PermissionStatus.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Location permissions are denied')));
+
+        return false;
+      }
+    }
+    if (permission == PermissionStatus.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.'),
+        ),
+      );
+
+      return false;
+    }
+    return true;
   }
 }

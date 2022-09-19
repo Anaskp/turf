@@ -18,6 +18,8 @@ dependencies:
   badges: ^2.0.2
   carousel_slider: ^4.0.0
   image_stack: ^2.1.1
+  location: ^4.4.0
+  geocoding: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -28,4 +30,3 @@ flutter:
 
   assets:
     - assets/icons/
-    - assets/images/
