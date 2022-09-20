@@ -20,6 +20,10 @@ dependencies:
   image_stack: ^2.1.1
   location: ^4.4.0
   geocoding: ^2.0.5
+  email_validator: ^2.1.17
+  firebase_auth: ^3.9.0
+  firebase_core: ^1.22.0
+  cloud_firestore: ^3.4.8
 
 dev_dependencies:
   flutter_test:

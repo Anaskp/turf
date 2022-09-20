@@ -1,5 +1,11 @@
+import 'dart:math';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_booking/screens/home.dart';
+import 'package:hotel_booking/screens/root_app.dart';
 
 class InfoScreen extends StatelessWidget {
   const InfoScreen({Key? key, required this.data}) : super(key: key);
@@ -84,7 +90,9 @@ class InfoScreen extends StatelessWidget {
                               backgroundColor: Colors.amber[900]),
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => SlotScreen()));
+                                builder: (context) => SlotScreen(
+                                      data: data,
+                                    )));
                           },
                           child: Text('Book Now'),
                         ),
@@ -101,8 +109,25 @@ class InfoScreen extends StatelessWidget {
   }
 }
 
-class SlotScreen extends StatelessWidget {
-  const SlotScreen({Key? key}) : super(key: key);
+class SlotScreen extends StatefulWidget {
+  const SlotScreen({Key? key, required this.data}) : super(key: key);
+  final data;
+
+  @override
+  State<SlotScreen> createState() => _SlotScreenState();
+}
+
+class _SlotScreenState extends State<SlotScreen> {
+  @override
+  void initState() {
+    getInfoo();
+    super.initState();
+  }
+
+  String? name;
+  String? mobile;
+  var user = FirebaseAuth.instance.currentUser;
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
@@ -112,9 +137,22 @@ class SlotScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '6:00PM - 7:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -135,9 +173,22 @@ class SlotScreen extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '7:00PM - 8:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -158,9 +209,22 @@ class SlotScreen extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '8:00PM - 9:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -181,9 +245,22 @@ class SlotScreen extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '9:00PM - 10:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -204,9 +281,22 @@ class SlotScreen extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '10:00PM - 11:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -227,9 +317,22 @@ class SlotScreen extends StatelessWidget {
               height: 10,
             ),
             InkWell(
-              onTap: () {
+              onTap: () async {
+                await FirebaseFirestore.instance
+                    .collection('booking')
+                    .doc(mobile)
+                    .set({
+                  'name': name,
+                  'mobile': mobile,
+                  'time': '11:00PM - 12:00PM',
+                  'code': random.nextInt((1000000) - 100000).toString(),
+                  'turfname': widget.data['name']
+                });
                 Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(
+                        builder: (context) => TicketScreen(
+                              mobile: mobile,
+                            )),
                     (route) => false);
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
@@ -245,6 +348,95 @@ class SlotScreen extends StatelessWidget {
                     color: Colors.grey[300]),
                 child: Center(child: Text('11:00PM - 12:00PM')),
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  getInfoo() async {
+    var data = await FirebaseFirestore.instance
+        .collection('usersData')
+        .doc(user!.uid)
+        .get();
+    setState(() {
+      name = data['name'];
+      mobile = data['mobile'];
+    });
+  }
+}
+
+class TicketScreen extends StatefulWidget {
+  const TicketScreen({
+    Key? key,
+    required this.mobile,
+  }) : super(key: key);
+  final mobile;
+
+  @override
+  State<TicketScreen> createState() => _TicketScreenState();
+}
+
+class _TicketScreenState extends State<TicketScreen> {
+  var user = FirebaseAuth.instance.currentUser;
+  String? turfName;
+  String? time;
+  String? code;
+  String? mobile;
+
+  @override
+  void initState() {
+    getInfoo();
+    getInfoo();
+    getInfoo();
+    getInfoo();
+    super.initState();
+  }
+
+  getInfoo() async {
+    var data = await FirebaseFirestore.instance
+        .collection('booking')
+        .doc(widget.mobile)
+        .get();
+    setState(() {
+      turfName = data['turfname'];
+      mobile = data['mobile'];
+      code = data['code'];
+      time = data['time'];
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Turf Name : ${turfName ?? 'Turf Name'}'),
+            SizedBox(
+              height: 10,
+            ),
+            Text('Time slot : ${time ?? 'timeSlot'}'),
+            SizedBox(
+              height: 10,
+            ),
+            Text('Code : ${code ?? 'code'}'),
+            SizedBox(
+              height: 10,
+            ),
+            Text('Mobile no : ${mobile ?? 'mobile'}'),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => RootApp()),
+                    (route) => false);
+              },
+              child: Text('Back to home'),
             ),
           ],
         ),

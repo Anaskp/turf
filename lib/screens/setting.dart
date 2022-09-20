@@ -1,6 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hotel_booking/screens/auth_page.dart';
 import 'package:hotel_booking/theme/color.dart';
 import 'package:hotel_booking/utils/data.dart';
 import 'package:hotel_booking/widgets/custom_image.dart';
@@ -15,6 +19,26 @@ class SettingPage extends StatefulWidget {
 }
 
 class _SettingPageState extends State<SettingPage> {
+  @override
+  void initState() {
+    getInfoo();
+    super.initState();
+  }
+
+  String? name;
+  String? mobile;
+  var user = FirebaseAuth.instance.currentUser;
+  getInfoo() async {
+    var data = await FirebaseFirestore.instance
+        .collection('usersData')
+        .doc(user!.uid)
+        .get();
+    setState(() {
+      name = data['name'];
+      mobile = data['mobile'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +113,7 @@ class _SettingPageState extends State<SettingPage> {
                   height: 12,
                 ),
                 Text(
-                  "Sangvaleap",
+                  name ?? '',
                   style: TextStyle(
                     color: textColor,
                     fontSize: 20,
@@ -100,7 +124,7 @@ class _SettingPageState extends State<SettingPage> {
                   height: 5,
                 ),
                 Text(
-                  "+12 345 6789",
+                  mobile ?? '',
                   style: TextStyle(
                     color: labelColor,
                     fontSize: 14,
@@ -155,7 +179,12 @@ class _SettingPageState extends State<SettingPage> {
         message: Text("Would you like to log out?"),
         actions: [
           CupertinoActionSheetAction(
-            onPressed: () {},
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => AuthScreen()),
+                  (route) => false);
+            },
             child: Text(
               "Log Out",
               style: TextStyle(color: actionColor),

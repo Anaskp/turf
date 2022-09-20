@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "635091279536",
+    "project_id": "turfbookingapp-7f324",
+    "storage_bucket": "turfbookingapp-7f324.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635091279536:android:d9c088c65ca14b0fb0a575",
+        "android_client_info": {
+          "package_name": "com.sangvaleap.hotel_booking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635091279536-7e7umpkgh0f7ta0dqn0v24nhmoemg0mc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLpRj6IqCQLpALQNQWdiIskZm-trfeIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635091279536-7e7umpkgh0f7ta0dqn0v24nhmoemg0mc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

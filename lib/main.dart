@@ -1,21 +1,28 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'screens/root_app.dart';
-import 'theme/color.dart';
+import 'package:flutter/services.dart';
+import 'package:hotel_booking/screens/auth_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Hotel Booking',
+      title: 'Turf Booking',
       theme: ThemeData(
-        primaryColor: primary,
+        primarySwatch: Colors.grey,
       ),
-      home: RootApp(),
+      home: AuthScreen(),
     );
   }
 }
